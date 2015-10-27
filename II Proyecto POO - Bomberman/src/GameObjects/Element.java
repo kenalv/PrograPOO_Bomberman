@@ -12,7 +12,7 @@ package GameObjects;
 
 /*The super clase element will represent each game object in the matrix, it 
 just have the name of the object and an unique id */
-public class Element {
+public abstract class Element {
     private String nameObject;
     private int idObject;
 
@@ -36,4 +36,8 @@ public class Element {
     public void setIdObject(int idObject) {
         this.idObject = idObject;
     }
+    
+    public abstract void CreateElement();
+    public abstract String Description();
+    
 }

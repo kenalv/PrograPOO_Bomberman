@@ -5,17 +5,24 @@
  */
 package Windows;
 
+import GameObjects.Element;
+import GameObjects.ElementFactory;
+import GameObjects.ElementFactoryMethod;
+import javax.swing.JLabel;
+
 /**
  *
  * @author HP 15 P002LA
  */
 public class Main_Window extends javax.swing.JFrame {
-
+    
+    
     /**
      * Creates new form Main_Window
      */
     public Main_Window() {
         initComponents();
+
     }
 
     /**
@@ -27,9 +34,13 @@ public class Main_Window extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         bombermanText = new javax.swing.JLabel();
         bombermanDrawable = new javax.swing.JLabel();
         playButton = new javax.swing.JButton();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButton3 = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Main Menu");
@@ -41,6 +52,20 @@ public class Main_Window extends javax.swing.JFrame {
         bombermanDrawable.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Bomberman1.png"))); // NOI18N
 
         playButton.setText("Play ");
+        playButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                playButtonActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(jRadioButton1);
+        jRadioButton1.setText("Easy");
+
+        buttonGroup1.add(jRadioButton2);
+        jRadioButton2.setText("Medium");
+
+        buttonGroup1.add(jRadioButton3);
+        jRadioButton3.setText("Hard");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -57,6 +82,13 @@ public class Main_Window extends javax.swing.JFrame {
                         .addGap(306, 306, 306)
                         .addComponent(playButton)))
                 .addContainerGap(60, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jRadioButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jRadioButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jRadioButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(179, 179, 179))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -64,11 +96,29 @@ public class Main_Window extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(bombermanText)
                     .addComponent(bombermanDrawable))
-                .addGap(87, 87, 87)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jRadioButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioButton3)
+                .addGap(11, 11, 11)
                 .addComponent(playButton)
                 .addGap(0, 253, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void playButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playButtonActionPerformed
+        // TODO add your handling code here:
+        
+        ElementFactoryMethod newElement = new ElementFactory(jRadioButton1,jRadioButton2,jRadioButton3);
+        Element element = newElement.newObject("Baloon", 2);
+        System.out.println(element.Description());
+        
+        
+        Play_Game v = new Play_Game();
+        v.setVisible(true);
+    }//GEN-LAST:event_playButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -108,6 +158,10 @@ public class Main_Window extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bombermanDrawable;
     private javax.swing.JLabel bombermanText;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JButton playButton;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,6 +5,10 @@
  */
 package ii.proyecto.poo.bomberman;
 
+import Windows.Main_Window;
+import Windows.Play_Game;
+
+
 /**
  *
  * @author HP 15 P002LA
@@ -16,6 +20,11 @@ public class IIProyectoPOOBomberman {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Main_Window v = new Main_Window();
+        v.setVisible(true);
+        
+
     }
+    
     
 }
